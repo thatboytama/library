@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reading Room – Library System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div>
+        <h1 class="brand">Reading Room</h1>
+        <p class="tagline">Log a book, share what you think, and see what others loved.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <section class="panel form-panel" aria-labelledby="form-title">
+      <h2 id="form-title">Add a book</h2>
+      <form id="book-form" novalidate>
+        <div class="field">
+          <label for="title">Book title</label>
+          <input type="text" id="title" maxlength="120" placeholder="e.g. Things Fall Apart" required>
+          <small class="error" id="title-error"></small>
+        </div>
+
+        <div class="field">
+          <label for="author">Author <span class="optional">(optional)</span></label>
+          <input type="text" id="author" maxlength="80" placeholder="e.g. chinua achebe">
+        </div>
+
+        <div class="field">
+          <label for="summary">Summary</label>
+          <textarea id="summary" rows="4" maxlength="600" placeholder="What is the book about?" required></textarea>
+          <small class="error" id="summary-error"></small>
+        </div>
+
+        <div class="field">
+          <label for="review">Your review</label>
+          <textarea id="review" rows="4" maxlength="600" placeholder="What did you think of it?" required></textarea>
+          <small class="error" id="review-error"></small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit book</button>
+      </form>
+    </section>
+
+    <section class="shelf" aria-labelledby="shelf-title">
+      <div class="shelf-head">
+        <h2 id="shelf-title">The shelf <span class="count" id="count">0</span></h2>
+        <input type="search" id="search" placeholder="Search by title or author" aria-label="Search books">
+      </div>
+      <div id="book-list" class="book-list"></div>
+      <p id="empty" class="empty">No books yet. Fill in the form to add the first one.</p>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
